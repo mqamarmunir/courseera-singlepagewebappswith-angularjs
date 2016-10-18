@@ -8,23 +8,33 @@
   function LunchCheckController($scope,$filter){
     $scope.items='';
     $scope.message='';
-    $scope.checkLunchItems=function () {
-if($scope.items.length>0){
-    //  $scope.message=$scope.items.length==0?"Please enter data first":"";
+	$scope.customStyle = {};
+$scope.turnGreen = function (){
+    //what to do here?
+    $scope.customStyle.style = {"color":"green"};
+}
 
-      var itemsarray=$scope.items.split(',');
-      //alert(itemsarray.length);
-      if(itemsarray.length>3){
-          $scope.message='Too Much!';
-        }
-      else {
-        $scope.message='Enjoy!';
+$scope.turnBlue = function() {
+    $scope.customStyle.style = {"color":"blue"};
+}
+	$scope.checkLunchItems=function () {
+	if($scope.items.length>0){
+	//  $scope.message=$scope.items.length==0?"Please enter data first":"";
 
-      }
-    }
-    else {
-      $scope.message='Please enter data first';
-    }
+	var itemsarray=$scope.items.split(',');
+	//alert(itemsarray.length);
+	if(itemsarray.length>3){
+		$scope.message='Too Much!';
+		$scope.turnBlue();
+		}
+	else {
+		$scope.message='Enjoy!';
+		$scope.turnGreen();
+	}
+	}
+	else {
+	$scope.message='Please enter data first';
+	}
   }
   }
 })();

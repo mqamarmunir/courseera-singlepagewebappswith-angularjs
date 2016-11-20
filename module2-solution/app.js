@@ -12,7 +12,7 @@
 
 
 
-    tbc.toBuyList=[{name:"Cookies",quantity:10},{name:"Cookies",quantity:10},{name:"Cookies",quantity:10},{name:"Cookies",quantity:10},{name:"Cookies",quantity:10},{name:"Cookies",quantity:10}];
+    tbc.toBuyList=[{name:"Cookies",quantity:10},{name:"Chocolates",quantity:5},{name:"Sweets",quantity:30},{name:"Washing Powder",quantity:1},{name:"Multani Sohan Halwa",quantity:2},{name:"Porridge",quantity:1}];
 
     tbc.addItemToBoughtList=function(index){
       //debugger;

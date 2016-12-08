@@ -4,7 +4,7 @@
   angular.module('NarrowItDownApp',[])
   .controller('NarrowItDownController',NarrowItDownController)
   .service('MenuSearchService',MenuSearchService)
-  .constant('ApiBasePath', "http://davids-restaurant.herokuapp.com");
+  .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
   NarrowItDownController.$inject=['MenuSearchService'];
 
@@ -23,7 +23,7 @@
         }
       }
 
-        console.log(narrowed.filteredItems);
+      //  console.log(narrowed.filteredItems);
         console.log("done!");
       })
       .catch(function(error){

@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
-    <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
     <script src="angular.min.js"></script>
 <script src="app.js"></script>
   </head>
@@ -22,41 +18,11 @@
     <div class="form-group narrow-button">
       <button class="btn btn-primary" ng-click="narrowed.NarrowItDownClick()">Narrow It Down For Me!</button>
     </div>
-    <div class="form-group col-lg-12 col-sm-12 col-xs-12">
-      <table class="table table-responsive table-hover" style="width:100%">
-        <thead>
-          <tr>
-            <th>
-              Short Name
-            </th>
-            <th>
-              Name
-            </th>
-            <th>
-              Description
-            </th>
-            <th>
-               Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="items in narrowed.filteredItems">
-            <td>
-              {{items.short_name}}
-            </td>
-            <td>
-              {{items.name}}
-            </td>
-            <td>
-              {{items.description}}
-            </td>
-            <td>
-              <button class="btn btn-default">Don't Want this one!</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="form-group col-lg-12 col-sm-12 col-xs-12" ng-if='narrowed.filteredItems.length>0'>
+      <found-Items narrowed-items='narrowed.filteredItems' on-remove='narrowed.removeItem(index)'></found-Items>
+    </div>
+    <div class="form-group col-lg-12 col-sm-12 col-xs-12" ng-if='narrowed.showNothingFoundMessage==1'>
+      <span>Nothing found!</span>
     </div>
     <!-- found-items should be implemented as a component -->
     <!-- <found-items found-items="...." on-remove="...."></found-items> -->

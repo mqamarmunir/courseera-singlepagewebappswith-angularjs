@@ -4,16 +4,46 @@
   angular.module('NarrowItDownApp',[])
   .controller('NarrowItDownController',NarrowItDownController)
   .service('MenuSearchService',MenuSearchService)
-  .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
+  .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com")
+  .directive('foundItems',foundItems);
 
+  function foundItems() {
+    var ddo={
+      templateUrl:'foundItems.html',
+      scope: {
+        narrowedItems:'<',
+        onRemove:'&'
+      },
+      controller:foundItemsDirectiveController,
+      controllerAs:'narrowedDirective',
+      bindToController:true
+
+
+    };
+    return ddo;
+
+  }
+function foundItemsDirectiveController(){
+  var narrowedDirective=this;
+}
   NarrowItDownController.$inject=['MenuSearchService'];
 
   function NarrowItDownController(MenuSearchService) {
     var narrowed= this;
 
+    narrowed.showNothingFoundMessage=0;
+//    narrowed.filteredItems=[];
+
     narrowed.NarrowItDownClick=function(){
-      var promise=MenuSearchService.getAllItems();
       narrowed.filteredItems=[];
+      narrowed.showNothingFoundMessage=0;
+      if(!narrowed.term){
+        narrowed.showNothingFoundMessage=1;
+        return
+      }
+
+      var promise=MenuSearchService.getAllItems();
+
       promise.then(function(response){
         narrowed.allItems=response.data;
         //console.log(narrowed.allItems);
@@ -22,6 +52,9 @@
             narrowed.filteredItems.push(narrowed.allItems.menu_items[i]);
         }
       }
+      if(narrowed.filteredItems.length==0){
+        narrowed.showNothingFoundMessage=1;
+      }
 
       //  console.log(narrowed.filteredItems);
         console.log("done!");
@@ -29,7 +62,13 @@
       .catch(function(error){
         console.log(error);
       });
+
+      narrowed.removeItem=function(index){
+        narrowed.filteredItems.splice(index,1);
+      }
     }
+
+
 
 
 
@@ -48,7 +87,9 @@
     });
 
     return response;
-    };
+  };
+
+
 
   }
 

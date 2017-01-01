@@ -6,7 +6,6 @@
 
   categoriesController.$inject=['MenuDataService','items']
   function categoriesController(MenuDataService,items) {
-    debugger;
     var categories=this;
     categories.items=items;
   }

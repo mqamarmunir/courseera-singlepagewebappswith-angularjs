@@ -30,16 +30,6 @@
     service.getAllCategories=function(){
       var deferred = $q.defer();
 
-      // var deferred = $q.defer();
-      //
-      //     // Wait 2 seconds before returning
-      //     $timeout(function () {
-      //       // deferred.reject(items);
-      //       deferred.resolve(items);
-      //     }, 800);
-      //
-      //     return deferred.promise;
-      debugger;
       $http.get("https://davids-restaurant.herokuapp.com/categories.json")
       .success(function(data){
         deferred.resolve(data);
@@ -57,7 +47,6 @@
     };
 
     service.getItemsForCategory=function(shortName){
-      debugger;
       var deferred = $q.defer();
 
       $http.get("https://davids-restaurant.herokuapp.com/menu_items.json?cateory="+shortName)

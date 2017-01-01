@@ -22,7 +22,6 @@
     controller:'categoriesController as categories',
     resolve:{
       items:['MenuDataService',function(MenuDataService){
-        debugger;
         return MenuDataService.getAllCategories();
       }]
     }
@@ -35,7 +34,6 @@
     controller:'itemsController as categoryItems',
     resolve:{
       catItems:['$stateParams','MenuDataService',function($stateParams,MenuDataService){
-        debugger;
         return MenuDataService.getItemsForCategory($stateParams.shortName);
       }]
     }

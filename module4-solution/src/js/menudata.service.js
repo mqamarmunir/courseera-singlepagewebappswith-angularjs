@@ -5,8 +5,8 @@
   .service('MenuDataService',MenuDataService)
   .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
-  MenuDataService.$inject=['$http','$timeout','$q'];
-  function MenuDataService($http,$timeout,$q) {
+  MenuDataService.$inject=['$http','$q'];
+  function MenuDataService($http,$q) {
     var service=this;
 
  // Pre-populate a no cookie list

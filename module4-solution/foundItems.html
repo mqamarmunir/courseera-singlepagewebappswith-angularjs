@@ -1,0 +1,37 @@
+<table class="table table-responsive table-hover" style="width:100%">
+  <thead>
+    <tr>
+      <th>
+        Short Name
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+         Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="items in narrowedDirective.narrowedItems">
+      <td>
+        {{items.short_name}}
+      </td>
+      <td>
+        {{items.name}}
+      </td>
+      <td>
+        {{items.description}}
+      </td>
+     <td>
+        <button  class="btn btn-default" ng-click="narrowedDirective.onRemove({index:$index})">Don't Want this one!</button>
+      </td>
+
+  <!-- <found-items></found-items>     -->
+    </tr>
+
+  </tbody>
+</table>

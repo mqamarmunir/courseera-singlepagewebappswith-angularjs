@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" ng-app="MenuApp">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+
+  </head>
+<body>
+   <div class="container">
+    <h1>Abbi's Hut</h1>
+    <ui-view></ui-view>
+
+<!-- Scripts libraries-->
+
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- modules libraries-->
+    <script src="src/js/data.module.js"></script>
+    <script src="src/js/menuapp.module.js"></script>
+
+<!-- routes-->
+    <script src="src/routes.js"></script>
+
+    <!-- artifacts for categories-->
+
+    <script src="src/js/categories.component.js"></script>
+    <script src="src/js/categories.controller.js"></script>
+    <script src="src/js/menudata.service.js"></script>
+
+    <!-- artifacts for categoryItems-->
+    <script src="src/js/items.component.js"></script>
+    <script src="src/js/items.controller.js"></script>
+</body>
+</html>

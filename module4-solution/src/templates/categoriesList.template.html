@@ -1,0 +1,36 @@
+<!-- <ul>
+  <li ng-repeat="item in $ctrl.items" >
+    {{ item.short_name}} >
+  </li>
+</ul> -->
+
+
+<table class="table table-responsive table-hover sortable" style="width:100%">
+  <thead>
+    <tr>
+      <th>
+        Short Name
+      </th>
+      <th>
+        Name
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in $ctrl.items" ui-sref="categoryitems({shortName:{{item.short_name}}})">
+      <td>
+        {{item.short_name}}
+      </td>
+      <td>
+        {{item.name}}
+      </td>
+
+
+  <!-- <found-items></found-items>     -->
+    </tr>
+
+  </tbody>
+</table>
+
+<!-- ui-sref="mainList.itemDetail({itemId: $index}) -->

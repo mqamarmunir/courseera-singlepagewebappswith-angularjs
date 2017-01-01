@@ -8,6 +8,6 @@
   function itemsController(MenuDataService,catItems) {
     debugger;
     var categoryItems=this;
-    categoryItems.items=catItems;
+    categoryItems.items=catItems.menu_items;
   }
 })();

@@ -49,7 +49,7 @@
     service.getItemsForCategory=function(shortName){
       var deferred = $q.defer();
 
-      $http.get("https://davids-restaurant.herokuapp.com/menu_items.json?cateory="+shortName)
+      $http.get("https://davids-restaurant.herokuapp.com/menu_items.json?category="+shortName)
       .success(function(data){
         deferred.resolve(data);
       }).error(function(msg,code){
